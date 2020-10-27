@@ -1,0 +1,124 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: corona_intro
+  examples: |
+    - what is [covid]{"entity": "infection", "value": "corona"}
+    - What is [corona virus]{"entity": "infection", "value": "corona"}
+    - what is novel [corona virus]{"entity": "infection", "value": "corona"}
+    - what is [covid-19]{"entity": "infection", "value": "corona"}
+    - tell me about [corona]{"entity":"infection"}
+    - can you tell me about [covid]{"entity": "infection", "value": "corona"}
+    - what is [corona]{"entity":"infection"}
+
+- intent: corona_symptoms
+  examples: |
+    - What are [corona]{"entity":"infection"} symptoms
+    - symptoms
+    - What are the symptoms
+    - What are its symptoms
+    - symptoms of [corona]{"entity":"infection"}
+
+- intent: prevent_corona
+  examples: |
+    - how to prevent [corona]{"entity":"infection"}
+    - how to avoid [corona]{"entity":"infection"}
+    - how not to get [corona]{"entity":"infection"}
+    - what are preventive measure for [corona]{"entity":"infection"}
+
+- intent: corona_state
+  examples: |
+    - give me [maharashtra](state) statistics
+    - number of cases in [maharashtra](state) 
+    - give me total number of cases in [india](state)
+    - total cases in [maharashtra](state)
+    - cases in [delhi](state) 
+    - How many cases are there in [maharashtra](state)
+    - [india](state)
+    - [maharashtra](state)
+    - [karnataka](state)
+    - [andra Pradesh](state)
+    - [west bengal](state)
+    - [odisha](state)
+    - [goa](state)
+    - [assam](state)
+    - [punjab](state)
+    - [delhi](state)
+    - [bihar](state)
+    - [uttar pradesh](state)
+    - [gujarat](state)
+    - [uttrakhand](state)
+    - [chhattisgarh](state)
+    - [haryana](state)
+    - [himachal pradesh](state)
+    - [jharkhand](state)
+    - [kerala](state)
+    - [madya pradesh](state)
+    - [rajasthan](state)
+    - [tamil nadu](state)
+    - [arunanchal pradesh](state)
+    - [meghalaya](state)
+    - [sikkim](state)
+    - [andaman and nicobar](state)
+    - [mizoram](state)
+    - [manipur](state)
+    - [goa](state)
+    - [nagaland](state)
+    - [tripura](state)
+
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?

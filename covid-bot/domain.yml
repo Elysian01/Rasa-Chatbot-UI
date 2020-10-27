@@ -1,0 +1,133 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- thankyou
+- help
+- deny
+- mood_great
+- bot_challenge
+- corona_intro
+- corona_symptoms
+- corona_spread
+- corona_food_spread
+- warm_weather
+- high_risk
+- corona_distance
+- prevent_corona
+- medicines
+- detect_corona
+- corona_state
+entities:
+- state
+- infection
+responses:
+  utter_greet:
+  - text: Hey! I am Covid 19 bot which helps in predicting whether u have covid or
+      not , provides the statistics of the covid situation at a national level  along
+      with the capacity to answer faqs regarding the virus.
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_thanks:
+  - text: My Pleasure !
+  utter_iamabot:
+  - text: I am a COVID bot
+  utter_help:
+  - text: I can answer to questions related to what is corona, its symptoms, preventive
+      measures, its spreading in warm weather or in general, who are at high risk,<br><br>click on above ? button to get more info
+      <br><br><b> I can also check whether u are suffering from corona or not ( type
+      -> corona test)</b>
+  utter_medicines:
+  - text: No pharmaceutical products have yet been shown to be safe and effective
+      for the treatment of COVID-19.
+  utter_corona_intro:
+  - text: Coronaviruses are a group of related viruses that cause diseases in mammals
+      and birds. In humans, coronaviruses cause respiratory tract infections that
+      can be mild, such as some cases of the common cold (among other possible causes,
+      predominantly rhinoviruses), and others that can be lethal, such as SARS, MERS,
+      and COVID-19
+  utter_corona_distance:
+  - text: Maintain at least 1 metre (3 feet) distance between yourself and others.
+      Why? When someone coughs, sneezes, or speaks they spray small liquid droplets
+      from their nose or mouth which may contain virus. If you are too close, you
+      can breathe in the droplets, including the COVID-19 virus if the person has
+      the disease
+  utter_corona_symptoms:
+  - text: The most common symptoms are <br><br><b>Fever</b></br><b>Dry cough</b></br><b>Tiredness</b><br><br>
+      And Serious Symptoms are <br> <br><b>Difficulty Breathing</b></br><b>Chest Pain</b></br><b>Loss
+      of speech or movement</b>
+  utter_prevent_corona:
+  - text: Standard recommendations to prevent the spread of COVID-19 include frequent
+      cleaning of hands using alcohol-based hand rub or soap and water; covering the
+      nose and mouth with a flexed elbow or disposable tissue when coughing and sneezing;
+      and avoiding close contact with anyone that has a fever and cough.
+  utter_corona_spread:
+  - text: This virus was first detected in Wuhan City, Hubei Province, China. The
+      first infections were linked to a live animal market, but the virus is now spreading
+      from person-to-person. It’s important to note that person-to-person spread can
+      happen on a continuum. Some viruses are highly contagious (like measles), while
+      other viruses are less so. The virus that causes COVID-19 is spreading from
+      person-to-person. Someone who is actively sick with COVID-19 can spread the
+      illness to others. That is why we recommend that these patients be isolated
+      either in the hospital or at home (depending on how sick they are) until they
+      are better and no longer pose a risk of infecting others.n How long someone
+      is actively sick can vary so the decision on when to release someone from isolation
+      is made on a case-by-case basis in consultation with doctors, infection prevention
+      and control experts, and public health officials and involves considering specifics
+      of each situation including disease severity, illness signs and symptoms, and
+      results of laboratory testing for that patient.n The virus that causes COVID-19
+      seems to be spreading easily and sustainably in the community (“community spread”)
+      in some affected geographic areas. Community spread means people have been infected
+      with the virus in an area, including some who are not sure how or where they
+      became infected.
+  utter_detect_corona:
+  - text: Do you want to take covid test ?
+  utter_covid_test_started:
+  - text: Covid Test Started.
+  utter_what_i_can_help_u_with:
+  - text: What i can help you with ?<br><br> you can type help to see what all i can
+      do
+  utter_corona_food_spread:
+  - text: Coronaviruses are generally thought to be spread from person-to-person through
+      respiratory droplets. Currently there is no evidence to support transmission
+      of COVID-19 associated with food. Before preparing or eating food it is important
+      to always wash your hands with soap and water for 20 seconds for general food
+      safety. Throughout the day wash your hands after blowing your nose, coughing
+      or sneezing, or going to the bathroom.
+  utter_warm_weather:
+  - text: It is not yet known whether weather and temperature impact the spread of
+      COVID-19. Some other viruses, like the common cold and flu, spread more during
+      cold weather months but that does not mean it is impossible to become sick with
+      these viruses during other months.  At this time, it is not known whether the
+      spread of COVID-19 will decrease when weather becomes warmer.  There is much
+      more to learn about the transmissibility, severity, and other features associated
+      with COVID-19 and investigations are ongoing.
+  utter_high_risk:
+  - text: Older adults and people of any age who have serious underlying medical conditions
+      may be at higher risk for more serious complications from COVID-19. These people
+      who may be at higher risk of getting very sick from this illness, includes;
+      Older adults, People who have serious underlying medical conditions like...
+      Heart disease, Diabetes, Lung disease.
+actions:
+- utter_greet
+- utter_goodbye
+- utter_iamabot
+- utter_help
+- utter_corona_intro
+- utter_corona_spread
+- utter_corona_food_spread
+- utter_warm_weather
+- utter_high_risk
+- utter_thanks
+- utter_prevent_corona
+- utter_corona_distance
+- utter_medicines
+- utter_detect_corona
+- utter_covid_test_started
+- utter_what_i_can_help_u_with
+- action_corona_tracker
