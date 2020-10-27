@@ -1,30 +1,39 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css";
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --chat-window-theme: dodgerblue;
+    --chat-window-width: 380px;
+    --chat-window-height: 500px;
+}
 
 .chat-btn {
     position: fixed;
-    right:50px;
+    right: 50px;
     bottom: 50px;
     border: none;
     outline: none;
     cursor: pointer;
-    background-color: dodgerblue;
+    background-color: var(--chat-window-theme);
     color: white;
-    width:60px;
-    height:60px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     opacity: 0.8;
     transition: opacity 0.3s;
-    box-shadow: 0 5px 5px rgba(0,0,0,0.4);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
 }
 
-.chat-btn:hover, .chat-submit:hover{
+.icon {
+    transform: scale(1.2);
+}
+
+.chat-btn:hover,
+.chat-submit:hover {
     opacity: 1;
 }
 
@@ -34,58 +43,82 @@
     position: fixed;
     bottom: 80px;
     right: 120px;
-    height:550px;
-    width:400px;
+    height: var(--chat-window-height);
+    width: var(--chat-window-width);
     background-color: white;
     /* display: flex; */
     flex-direction: column;
     justify-content: space-between;
     /* padding: 0.75rem; */
-    border:1px solid #ccc;
-    box-shadow: 5 5px 5px rgba(0,0,0,0.4);
+    border: 1px solid #ccc;
+    box-shadow: 5 5px 5px rgba(0, 0, 0, 0.4);
     border-radius: 15px;
+    transition: all 0.5s ease-out;
 }
 
 .chat-header {
     /* background-color: dodgerblue; */
-    background-color: dodgerblue;
-    background-image: linear-gradient(160deg,dodgerblue 0%, #80D0C7 100%);
+    background-color: var(--chat-window-theme);
+    background-image: linear-gradient(160deg, dodgerblue 0%, #80D0C7 100%);
     color: white;
-    display:flex;
+    display: flex;
+    justify-content: space-between;
     padding: 10px;
     margin-bottom: 10px;
     align-items: center;
+}
+
+.chat-header .bot-title {
+    display: flex;
+    justify-content: flex-start;
+    float: left;
+}
+
+.expand-chat-window {
+    width: 50px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.expand-chat-window:hover {
+    transform: scale(1.5);
+    outline: none;
+    border: none;
 }
 
 .bot-img {
     width: 30px;
     margin-right: 15px;
 }
+
 .chat-area {
     height: 80%;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-.bot-msg  {
+.bot-msg {
     display: flex;
     align-items: center;
     margin: 15px;
 }
 
 .bot-msg .msg {
-    background-color: dodgerblue;
+    background-color: var(--chat-window-theme);
     color: white;
     padding: 0.5rem;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 .user-msg {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-right:10px;
+    margin-right: 10px;
 }
 
 .user-msg .msg {
@@ -94,7 +127,7 @@
     margin: 0.5rem;
     padding: 0.5rem;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     word-break: break-all;
 }
 
@@ -102,7 +135,6 @@
     max-width: 90%;
     max-height: 400px;
 }
-
 
 .chat-input-area {
     position: relative;
@@ -112,14 +144,14 @@
 
 .chat-input {
     width: 100%;
-    border:1px solid #ccc;
+    border: 1px solid #ccc;
     padding: 0.5rem;
     font-size: 1rem;
     border-radius: 5px;
     height: 2.2rem;
     margin-bottom: 0.5rem;
     margin-left: 0.5rem;
-    outline-color: dodgerblue;
+    outline-color: var(--chat-window-theme);
 }
 
 .chat-submit {
