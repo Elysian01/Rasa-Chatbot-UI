@@ -7,3 +7,14 @@ https://github.com/saioni/Medical-Chatbot
 
 
 https://github.com/suraj-mandal/Medical-Chatbot
+
+----------------------------------------------
+
+# Chatbot frontend
+
+## Parameters
+- Logo change
+- desktop window change
+
+Additional functionality
+- mobile window takeover

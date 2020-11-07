@@ -6,9 +6,13 @@
 }
 
 :root {
-    --chat-window-theme: dodgerblue;
-    --chat-window-width: 380px;
+    --chat-window-total-width: 380px;
     --chat-window-height: 500px;
+    --chat-window-color-theme: #1e90ff;
+    --chat-window-bg-color: #fff;
+    --chat-send-button: #1e90ff;
+    --chat-user-msg-bg: #ddd;
+    --chat-header-bg: linear-gradient(160deg, dodgerblue 0%, #80D0C7 100%);
 }
 
 .chat-btn {
@@ -18,7 +22,7 @@
     border: none;
     outline: none;
     cursor: pointer;
-    background-color: var(--chat-window-theme);
+    background-color: var(--chat-window-color-theme);
     color: white;
     width: 60px;
     height: 60px;
@@ -44,8 +48,8 @@
     bottom: 80px;
     right: 120px;
     height: var(--chat-window-height);
-    width: var(--chat-window-width);
-    background-color: white;
+    width: var(--chat-window-total-width);
+    background-color: var(--chat-window-bg-color);
     /* display: flex; */
     flex-direction: column;
     justify-content: space-between;
@@ -58,14 +62,15 @@
 
 .chat-header {
     /* background-color: dodgerblue; */
-    background-color: var(--chat-window-theme);
-    background-image: linear-gradient(160deg, dodgerblue 0%, #80D0C7 100%);
+    background-color: var(--chat-window-color-theme);
+    background-image: var(--chat-header-bg);
     color: white;
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     align-items: center;
+    max-height: 50px;
 }
 
 .chat-header .bot-title {
@@ -89,15 +94,11 @@
     border: none;
 }
 
-.bot-img {
-    width: 30px;
-    margin-right: 15px;
-}
-
 .chat-area {
     height: 80%;
     overflow-y: auto;
     overflow-x: hidden;
+    background-color: var(--chat-window-bg-color);
 }
 
 .bot-msg {
@@ -106,8 +107,13 @@
     margin: 15px;
 }
 
+.bot-img {
+    width: 30px;
+    margin-right: 15px;
+}
+
 .bot-msg .msg {
-    background-color: var(--chat-window-theme);
+    background-color: var(--chat-window-color-theme);
     color: white;
     padding: 0.5rem;
     border-radius: 5px;
@@ -122,7 +128,7 @@
 }
 
 .user-msg .msg {
-    background-color: #ddd;
+    background-color: var(--chat-user-msg-bg);
     color: black;
     margin: 0.5rem;
     padding: 0.5rem;
@@ -151,13 +157,13 @@
     height: 2.2rem;
     margin-bottom: 0.5rem;
     margin-left: 0.5rem;
-    outline-color: var(--chat-window-theme);
+    outline-color: var(--chat-window-color-theme);
 }
 
 .chat-submit {
     padding: 0.25rem 0.5rem;
     margin-left: 0.5rem;
-    background-color: #4cbb17;
+    background-color: var(--chat-send-button);
     color: white;
     display: flex;
     justify-content: center;
@@ -181,5 +187,6 @@
         bottom: 120px;
         right: 10%;
         width: 80vw;
+        height: 100%;
     }
 }

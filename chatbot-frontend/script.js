@@ -2,9 +2,7 @@
 Makes backend API call to rasa chatbot and display output to chatbot frontend
 */
 
-
-
-(function() {
+function init() {
 
     //---------------------------- Including Jquery ------------------------------
 
@@ -13,23 +11,27 @@ Makes backend API call to rasa chatbot and display output to chatbot frontend
     script.type = 'text/javascript';
     document.getElementsByTagName('head')[0].appendChild(script);
 
+    //--------------------------- Important Variables----------------------------
+    botLogoPath = "./imgs/bot-logo.png"
+
     //--------------------------- Chatbot Frontend -------------------------------
     const chatContainer = document.getElementById("chat-container");
 
     template = ` <button class='chat-btn'><img src = "./icons/comment.png" class = "icon" ></button>
 
-	<div class='chat-popup'>
-
+    <div class='chat-popup'>
+    
 		<div class='chat-header'>
-			<div class='chatBot-img'>
-				<img src='https://support.upwork.com/hc/article_attachments/360040474034/chatbot-data.png' alt='Chat Bot image' class='bot-img'> 
+			<div class='chatbot-img'>
+				<img src='${botLogoPath}' alt='Chat Bot image' class='bot-img'> 
 			</div>
 			<h3 class='bot-title'>Covid Bot</h3>
 			<button class = "expand-chat-window" ><img src="./icons/open_fullscreen.png" class="icon" ></button>
 		</div>
 
 		<div class='chat-area'>
-			<div class='bot-msg'>
+            <div class='bot-msg'>
+                <img class='bot-img' src ='${botLogoPath}' />
 				<span class='msg'>Hi, How can i help you?</span>
 			</div>
 
@@ -54,38 +56,76 @@ Makes backend API call to rasa chatbot and display output to chatbot frontend
 
     chatContainer.innerHTML = template;
 
-})()
+    //--------------------------- Important Variables----------------------------
+    var inactiveMessage = "Server is down, Please contact the developer to activate it"
 
-const chatPopup = document.querySelector(".chat-popup")
-const chatBtn = document.querySelector(".chat-btn")
-const chatSubmit = document.querySelector(".chat-submit")
-const chatArea = document.querySelector(".chat-area")
-const chatInput = document.querySelector(".chat-input")
-const expandWindow = document.querySelector(".expand-chat-window")
-chatPopup.style.display = "none"
-var host = ""
 
-//------------------------ ChatBot Toggler -------------------------
+    chatPopup = document.querySelector(".chat-popup")
+    chatBtn = document.querySelector(".chat-btn")
+    chatSubmit = document.querySelector(".chat-submit")
+    chatHeader = document.querySelector(".chat-header")
+    chatArea = document.querySelector(".chat-area")
+    chatInput = document.querySelector(".chat-input")
+    expandWindow = document.querySelector(".expand-chat-window")
+    root = document.documentElement;
+    chatPopup.style.display = "none"
+    var host = ""
 
-chatBtn.addEventListener("click", () => {
-    // chatPopup.classList.toggle("show");
-    // chatInput.focus();
-    if (chatPopup.style.display == "none") {
-        chatPopup.style.display = "flex"
-        chatInput.focus();
-        chatBtn.innerHTML = `<img src = "./icons/close.png" class = "icon" >`
-    } else {
-        chatPopup.style.display = "none"
-        chatBtn.innerHTML = `<img src = "./icons/comment.png" class = "icon" >`
-    }
-})
+
+    //------------------------ ChatBot Toggler -------------------------
+
+    chatBtn.addEventListener("click", () => {
+
+        mobileDevice = !detectMob()
+        if (chatPopup.style.display == "none" && mobileDevice) {
+            chatPopup.style.display = "flex"
+            chatInput.focus();
+            chatBtn.innerHTML = `<img src = "./icons/close.png" class = "icon" >`
+        } else if (mobileDevice) {
+            chatPopup.style.display = "none"
+            chatBtn.innerHTML = `<img src = "./icons/comment.png" class = "icon" >`
+        } else {
+            mobileView()
+        }
+    })
+
+    chatSubmit.addEventListener("click", () => {
+        let userResponse = chatInput.value.trim();
+        if (userResponse !== "") {
+            setUserResponse();
+            send(userResponse)
+        }
+    })
+
+    expandWindow.addEventListener("click", (e) => {
+        // console.log(expandWindow.innerHTML)
+        if (expandWindow.innerHTML == '<img src="./icons/open_fullscreen.png" class="icon">') {
+            expandWindow.innerHTML = `<img src = "./icons/close_fullscreen.png" class = 'icon'>`
+            root.style.setProperty('--chat-window-height', 80 + "%");
+            root.style.setProperty('--chat-window-width', 85 + "%");
+        } else if (expandWindow.innerHTML == '<img src="./icons/close.png" class="icon">') {
+            chatPopup.style.display = "none"
+            chatBtn.style.display = "block"
+        } else {
+            expandWindow.innerHTML = `<img src = "./icons/open_fullscreen.png" class = "icon" >`
+            root.style.setProperty('--chat-window-height', 550 + "px");
+            root.style.setProperty('--chat-window-width', 400 + "px");
+        }
+
+    })
+
+
+}
+
 
 // to submit user input when he presses enter
 function givenUserInput(e) {
     if (e.keyCode == 13) {
-        let userResponse = chatInput.value;
-        setUserResponse()
-        send(userResponse)
+        let userResponse = chatInput.value.trim();
+        if (userResponse !== "") {
+            setUserResponse()
+            send(userResponse)
+        }
     }
 }
 
@@ -98,11 +138,7 @@ function setUserResponse() {
     scrollToBottomOfResults();
 }
 
-chatSubmit.addEventListener("click", () => {
-    let userResponse = chatInput.value;
-    setUserResponse();
-    send(userResponse)
-})
+
 
 function scrollToBottomOfResults() {
     chatArea.scrollTop = chatArea.scrollHeight;
@@ -114,6 +150,7 @@ Frontend Part Completed
 
 // host = 'http://localhost:5005/webhooks/rest/webhook'
 function send(message) {
+    chatInput.focus();
     console.log("User Message:", message)
     $.ajax({
         url: host,
@@ -135,6 +172,7 @@ function send(message) {
 
         }
     });
+    chatInput.focus();
 }
 
 
@@ -143,59 +181,102 @@ function setBotResponse(val) {
     setTimeout(function() {
         if (val.length < 1) {
             //if there is no response from Rasa
-            msg = 'I couldn\'t get that. Let\' try something else!';
+            // msg = 'I couldn\'t get that. Let\' try something else!';
+            msg = inactiveMessage;
 
-            var BotResponse = `<div class='bot-msg'><span class='msg'> ${msg} </span></div>`;
+            var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><span class='msg'> ${msg} </span></div>`;
             $(BotResponse).appendTo('.chat-area').hide().fadeIn(1000);
+            scrollToBottomOfResults();
+            chatInput.focus();
 
         } else {
             //if we get response from Rasa
             for (i = 0; i < val.length; i++) {
                 //check if there is text message
                 if (val[i].hasOwnProperty("text")) {
-                    var BotResponse = `<div class='bot-msg'><span class='msg'>${val[i].text}</span></div>`;
+                    var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><span class='msg'>${val[i].text}</span></div>`;
                     $(BotResponse).appendTo('.chat-area').hide().fadeIn(1000);
                 }
 
                 //check if there is image
                 if (val[i].hasOwnProperty("image")) {
-                    var BotResponse = "<div class='bot-msg'>" +
-                        '<img class="msg-image" src="' + val[i].image + '">' +
+                    var BotResponse = "<div class='bot-msg'>" + "<img class='bot-img' src ='${botLogoPath}' />"
+                    '<img class="msg-image" src="' + val[i].image + '">' +
                         '</div>'
                     $(BotResponse).appendTo('.chat-area').hide().fadeIn(1000);
                 }
 
             }
             scrollToBottomOfResults();
+            chatInput.focus();
         }
 
     }, 500);
 }
 
-expandWindow.addEventListener("click", (e) => {
-    let root = document.documentElement;
-    console.log(expandWindow.innerHTML)
-    if (expandWindow.innerHTML == '<img src="./icons/open_fullscreen.png" class="icon">') {
-        expandWindow.innerHTML = `<img src = "./icons/close_fullscreen.png" class = 'icon'>`
-        root.style.setProperty('--chat-window-height', 80 + "%");
-        root.style.setProperty('--chat-window-width', 85 + "%");
-    } else {
-        expandWindow.innerHTML = `<img src = "./icons/open_fullscreen.png" class = "icon" >`
-        root.style.setProperty('--chat-window-height', 550 + "px");
-        root.style.setProperty('--chat-window-width', 400 + "px");
+
+
+
+function mobileView() {
+    $('.chat-popup').width($(window).width());
+
+    if (chatPopup.style.display == "none") {
+        chatPopup.style.display = "flex"
+            // chatInput.focus();
+        chatBtn.style.display = "none"
+        chatPopup.style.bottom = "0"
+        chatPopup.style.right = "0"
+            // chatPopup.style.transition = "none"
+        expandWindow.innerHTML = `<img src = "./icons/close.png" class = "icon" >`
+    }
+}
+
+function detectMob() {
+    return ((window.innerHeight <= 800) && (window.innerWidth <= 600));
+}
+
+function chatbotTheme(theme) {
+    const gradientHeader = document.querySelector(".chat-header");
+    const orange = {
+        color: "#FBAB7E",
+        background: "linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)"
+    }
+    const pink = {
+        color: "#FF6A88",
+        background: "linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);"
     }
 
-})
+    const purple = {
+        color: "#B721FF",
+        background: "linear-gradient(19deg, #21D4FD 0%, #B721FF 100%)"
+    }
 
+    if (theme === "orange") {
+        root.style.setProperty('--chat-window-color-theme', orange.color);
+        gradientHeader.style.backgroundImage = orange.background;
+        chatSubmit.style.backgroundColor = orange.color;
+    } else if (theme === "pink") {
+        root.style.setProperty('--chat-window-color-theme', pink.color);
+        gradientHeader.style.backgroundImage = pink.background;
+        chatSubmit.style.backgroundColor = pink.color;
+    } else if (theme === "purple") {
+        root.style.setProperty('--chat-window-color-theme', purple.color);
+        gradientHeader.style.backgroundImage = purple.background;
+        chatSubmit.style.backgroundColor = purple.color;
+    }
+}
 
+function createChatBot(hostURL, botLogo, title, welcomeMessage, inactiveMsg, theme = "blue") {
 
-function createChatBot(hostURL, title, welcomeMessage) {
-
+    host = hostURL;
+    botLogoPath = botLogo;
+    inactiveMessage = inactiveMsg;
+    init()
     const msg = document.querySelector(".msg");
     msg.innerText = welcomeMessage;
 
     const botTitle = document.querySelector(".bot-title");
     botTitle.innerText = title;
 
-    host = hostURL;
+    chatbotTheme(theme)
 }

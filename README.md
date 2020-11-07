@@ -6,3 +6,14 @@ To Start the chatbot locally
 ```
 rasa run -m models --enable-api --cors "*" --debug
 ```
+
+## Functionalities
+* Header
+* Faetures
+* submit color, msg color, border color,chat background color of chat area => done
+* img change 
+* rasa independent docs 
+* Footer
+
+## Future optional features
+* Speech to text 
