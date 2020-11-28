@@ -9,11 +9,11 @@ rasa run -m models --enable-api --cors "*" --debug
 
 ## Functionalities
 * Header
-* Faetures
+* Features
 * submit color, msg color, border color,chat background color of chat area => done
 * img change 
 * rasa independent docs 
-* Footer
+* Footer => after IP submission
 
 ## Future optional features
 * Speech to text 
