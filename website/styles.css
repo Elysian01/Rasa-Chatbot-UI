@@ -8,16 +8,27 @@
     --primary-color: rgb(159, 224, 39);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 a {
     text-decoration: none;
 }
 
+.primary-color {
+    color: var(--primary-color);
+}
+
 .hero {
     background: rgb(17, 65, 84);
-    background: linear-gradient(20deg, #000645 15%, #06374d 30%, #305a75 100%);
-    background-color: #FF3CAC;
     background-image: linear-gradient(225deg, #305a75 0%, #06374d 40%, #000645 100%);
     height: 100vh;
+}
+
+.dark-bg {
+    background: rgb(17, 65, 84);
+    background-image: linear-gradient(225deg, #305a75 0%, #06374d 40%, #000645 100%);
 }
 
 .navbar-brand i,
@@ -54,20 +65,23 @@ a {
     margin-top: 8%;
     /* width: 50%; */
     color: white;
+    /* max-width: 600px; */
 }
 
 .hero-header p {
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: 2px;
     text-indent: 100px;
+    max-width: 80%;
 }
 
 .hero-header .btns {
-    text-align: center;
+    margin-left: 20%;
 }
 
 .hero-bot {
-    width: 100%;
+    margin: 0;
+    /* width: 120%; */
 }
 
 .hero-bot img {
@@ -111,8 +125,13 @@ a {
         max-width: 100vw;
         margin: 10px;
     }
+    .hero-header .btns {
+        margin: 0;
+        text-align: center;
+    }
     .hero-header p {
         text-indent: 0px;
+        width: 100%;
     }
     .mobile {
         display: block;
@@ -126,3 +145,154 @@ a {
 /*--------------------------------
 End of Hero Section
 ----------------------------------*/
+
+#features {
+    /* height: 100vh; */
+    align-items: center;
+    padding-top: 4%;
+}
+
+#get-started {
+    padding: 3% 0;
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {
+    background: rgb(8, 21, 33);
+}
+
+.code-toolbar {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+
+/* Lists */
+
+.list-group-left {
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.list-group-right {
+    margin-left: 5px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.list-group-item-left {
+    border-left: 6px solid var(--primary-color);
+}
+
+.list-group-item-right {
+    border-right: 6px solid var(--primary-color);
+}
+
+.arrow {
+    color: var(--primary-color);
+}
+
+.list-group-item {
+    margin: 10px;
+    border-top-width: 1px !important;
+    background-color: rgb(12, 20, 35);
+    color: white;
+    /* box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.2); */
+    transition: 0.3s;
+}
+
+.icon {
+    width: 25px;
+    vertical-align: middle;
+    flex: 0 0 auto;
+    margin-right: 10px;
+}
+
+.list-group-item-center {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.card-outer-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+}
+
+.card {
+    height: auto;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: orange;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+    color: red;
+}
+
+.token.function {
+    color: white;
+}
+
+.title {
+    color: var(--primary-color);
+}
+
+.fa {
+    color: var(--primary-color);
+}
+
+.feature-card {
+    text-align: center;
+}
+
+@media all and (max-width: 968px) {
+    .list-group-item-center {
+        width: 86%;
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+    .card-outer-container {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto;
+        align-content: space-evenly;
+    }
+    .list-group-left {
+        /* margin-left: 10px;
+      margin-right: 5px;
+      margin-top: 20px;
+      margin-bottom: 20px; */
+        text-align: center;
+    }
+    .list-group-right {
+        /* margin-left: 5px;
+      margin-right: 10px;
+      margin-top: 20px;
+      margin-bottom: 20px; */
+        text-align: center;
+    }
+    .feature-card {
+        background-color: rgb(12, 20, 35);
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    .code-toolbar {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
