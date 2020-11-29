@@ -11,11 +11,11 @@
 
 html {
     scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
 }
 
 a {
     text-decoration: none;
+    outline: none;
 }
 
 .primary-color {
@@ -41,9 +41,13 @@ a {
 .navbar-light .navbar-brand {
     color: #fff;
     font-size: 30px;
-    /* text-transform: uppercase; */
     font-weight: bold;
     letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.navbar-brand:hover {
+    color: #fff !important;
 }
 
 .nav-item {
@@ -225,6 +229,13 @@ pre[class*="language-"] {
 
 .card {
     height: auto;
+    box-shadow: 5px 3px 4px #3d3c3c;
+    transition: all 0.5s;
+}
+
+.card:hover,
+.btn:hover {
+    transform: scale(1.2);
 }
 
 code[class*="language-"],
@@ -327,6 +338,7 @@ Themes and Upgrades
 
 .btn {
     margin: 10px auto;
+    transition: all 0.5s;
 }
 
 .btn-margin {
