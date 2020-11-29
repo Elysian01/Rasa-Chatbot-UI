@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./chatbot-ui.css">
     <title>Custom UI ChatBot</title>
 
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            /* background-color: #e5e5e5; */
+            background-color: #e5e5e5;
             display: flex;
             justify-content: center;
             height: 100vh;
@@ -37,15 +37,15 @@
 
 <body>
 
-    <!-- <section>
+    <section>
         <h1>Covid ChatBot</h1>
         <p>Click on the chat button to start chatting</p>
-    </section> -->
+    </section>
 
     <div id="chat-container"></div>
-    <script src="./script.js"></script>
+    <script src="./chatbot-ui.js"></script>
     <script>
-        createChatBot(host = 'http://localhost:5005/webhooks/rest/webhook', botLogo = "./imgs/bot-logo2.png",
+        createChatBot(host = 'http://localhost:5005/webhooks/rest/webhook', botLogo = "./imgs/bot-logo.png",
             title = "Covid BOT", welcomeMessage = "Hey, i am Covid Bot", inactiveMsg = "Server is down, Please contact the developer to activate it", theme = "purple")
     </script>
 

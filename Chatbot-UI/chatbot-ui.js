@@ -2,7 +2,7 @@
 Makes backend API call to rasa chatbot and display output to chatbot frontend
 */
 
-function init() {
+function init(botLogoPath) {
 
     //---------------------------- Including Jquery ------------------------------
 
@@ -12,12 +12,12 @@ function init() {
     document.getElementsByTagName('head')[0].appendChild(script);
 
     //--------------------------- Important Variables----------------------------
-    botLogoPath = "./imgs/bot-logo.png"
+    // botLogoPath = "./imgs/bot-logo.png"
 
     //--------------------------- Chatbot Frontend -------------------------------
     const chatContainer = document.getElementById("chat-container");
 
-    template = ` <button class='chat-btn'><img src = "./icons/comment.png" class = "icon" ></button>
+    template = ` <button class='chat-btn'><img src = "./icons/comment.png" class = "material-icon" ></button>
 
     <div class='chat-popup'>
     
@@ -26,7 +26,7 @@ function init() {
 				<img src='${botLogoPath}' alt='Chat Bot image' class='bot-img'> 
 			</div>
 			<h3 class='bot-title'>Covid Bot</h3>
-			<button class = "expand-chat-window" ><img src="./icons/open_fullscreen.png" class="icon" ></button>
+			<button class = "expand-chat-window" ><img src="./icons/open_fullscreen.png" class="material-icon" ></button>
 		</div>
 
 		<div class='chat-area'>
@@ -80,10 +80,10 @@ function init() {
         if (chatPopup.style.display == "none" && mobileDevice) {
             chatPopup.style.display = "flex"
             chatInput.focus();
-            chatBtn.innerHTML = `<img src = "./icons/close.png" class = "icon" >`
+            chatBtn.innerHTML = `<img src = "./icons/close.png" class = "material-icon" >`
         } else if (mobileDevice) {
             chatPopup.style.display = "none"
-            chatBtn.innerHTML = `<img src = "./icons/comment.png" class = "icon" >`
+            chatBtn.innerHTML = `<img src = "./icons/comment.png" class = "material-icon" >`
         } else {
             mobileView()
         }
@@ -99,15 +99,16 @@ function init() {
 
     expandWindow.addEventListener("click", (e) => {
         // console.log(expandWindow.innerHTML)
-        if (expandWindow.innerHTML == '<img src="./icons/open_fullscreen.png" class="icon">') {
-            expandWindow.innerHTML = `<img src = "./icons/close_fullscreen.png" class = 'icon'>`
+        if (expandWindow.innerHTML == '<img src="./icons/open_fullscreen.png" class="material-icon">') {
+            expandWindow.innerHTML = `<img src = "./icons/close_fullscreen.png" class = 'material-icon'>`
             root.style.setProperty('--chat-window-height', 80 + "%");
             root.style.setProperty('--chat-window-total-width', 85 + "%");
-        } else if (expandWindow.innerHTML == '<img src="./icons/close.png" class="icon">') {
+            chatHeader.style.width = "100%";
+        } else if (expandWindow.innerHTML == '<img src="./icons/close.png" class="material-icon">') {
             chatPopup.style.display = "none"
             chatBtn.style.display = "block"
         } else {
-            expandWindow.innerHTML = `<img src = "./icons/open_fullscreen.png" class = "icon" >`
+            expandWindow.innerHTML = `<img src = "./icons/open_fullscreen.png" class = "material-icon" >`
             root.style.setProperty('--chat-window-height', 500 + "px");
             root.style.setProperty('--chat-window-total-width', 380 + "px");
         }
@@ -227,7 +228,7 @@ function mobileView() {
         chatPopup.style.bottom = "0"
         chatPopup.style.right = "0"
             // chatPopup.style.transition = "none"
-        expandWindow.innerHTML = `<img src = "./icons/close.png" class = "icon" >`
+        expandWindow.innerHTML = `<img src = "./icons/close.png" class = "material-icon" >`
     }
 }
 
@@ -265,7 +266,7 @@ function createChatBot(hostURL, botLogo, title, welcomeMessage, inactiveMsg, the
     host = hostURL;
     botLogoPath = botLogo;
     inactiveMessage = inactiveMsg;
-    init()
+    init(botLogoPath)
     const msg = document.querySelector(".msg");
     msg.innerText = welcomeMessage;
 

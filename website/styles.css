@@ -13,9 +13,19 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 a {
     text-decoration: none;
     outline: none;
+}
+
+@media (max-width: 768px) {
+    .hideOverflowOnMobile {
+        overflow: hidden;
+    }
 }
 
 .primary-color {
