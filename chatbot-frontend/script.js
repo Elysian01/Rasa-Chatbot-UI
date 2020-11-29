@@ -102,14 +102,14 @@ function init() {
         if (expandWindow.innerHTML == '<img src="./icons/open_fullscreen.png" class="icon">') {
             expandWindow.innerHTML = `<img src = "./icons/close_fullscreen.png" class = 'icon'>`
             root.style.setProperty('--chat-window-height', 80 + "%");
-            root.style.setProperty('--chat-window-width', 85 + "%");
+            root.style.setProperty('--chat-window-total-width', 85 + "%");
         } else if (expandWindow.innerHTML == '<img src="./icons/close.png" class="icon">') {
             chatPopup.style.display = "none"
             chatBtn.style.display = "block"
         } else {
             expandWindow.innerHTML = `<img src = "./icons/open_fullscreen.png" class = "icon" >`
-            root.style.setProperty('--chat-window-height', 550 + "px");
-            root.style.setProperty('--chat-window-width', 400 + "px");
+            root.style.setProperty('--chat-window-height', 500 + "px");
+            root.style.setProperty('--chat-window-total-width', 380 + "px");
         }
 
     })
@@ -239,11 +239,7 @@ function chatbotTheme(theme) {
     const gradientHeader = document.querySelector(".chat-header");
     const orange = {
         color: "#FBAB7E",
-        background: "linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)"
-    }
-    const pink = {
-        color: "#FF6A88",
-        background: "linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);"
+        background: "linear-gradient(19deg, #FBAB7E 0%, #F7CE68 100%)"
     }
 
     const purple = {
@@ -251,14 +247,12 @@ function chatbotTheme(theme) {
         background: "linear-gradient(19deg, #21D4FD 0%, #B721FF 100%)"
     }
 
+
+
     if (theme === "orange") {
         root.style.setProperty('--chat-window-color-theme', orange.color);
         gradientHeader.style.backgroundImage = orange.background;
         chatSubmit.style.backgroundColor = orange.color;
-    } else if (theme === "pink") {
-        root.style.setProperty('--chat-window-color-theme', pink.color);
-        gradientHeader.style.backgroundImage = pink.background;
-        chatSubmit.style.backgroundColor = pink.color;
     } else if (theme === "purple") {
         root.style.setProperty('--chat-window-color-theme', purple.color);
         gradientHeader.style.backgroundImage = purple.background;
