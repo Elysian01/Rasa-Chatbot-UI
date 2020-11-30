@@ -29,4 +29,4 @@ theme="blue ")
 
 ```
 
-### The frontend webiste for documentation is also built using Vuejs [files are here](./chatbot-ui-vuejs-app) and deployed version of site is [here](https://chatbot-web-ui.netlify.app/) 
+### The frontend webiste for documentation is also built using Vuejs, the files for it are [here](./chatbot-ui-vuejs-app) and deployed version of site is [here](https://chatbot-web-ui.netlify.app/) 
