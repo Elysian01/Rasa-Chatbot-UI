@@ -14,7 +14,7 @@ Copy-paste the stylesheet <link> into your <head> before all other stylesheets t
 
 Copy-paste the folowing code into your <body>, and update the function parameters to your need.
 
-```javascript
+```js
 <div id="chat-container"></div>
 
 <script src="https://drive.google.com/uc?id=1QslZLwqbJl471otp1Ph1y8MLHSzKqCPl"></script>
