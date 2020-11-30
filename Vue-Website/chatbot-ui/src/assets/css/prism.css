@@ -16,11 +16,11 @@ pre[class*="language-"] {
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: 1em;
     text-align: left;
-    white-space: pre;
+    white-space: pre-line;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
-    line-height: 1.1;
+    line-height: 1.2;
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;
@@ -28,7 +28,33 @@ pre[class*="language-"] {
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
-    padding: 0;
+    padding-left: 50px !important;
+}
+
+pre[class*="language-"] {
+    position: relative;
+    overflow: visible !important;
+    border-radius: 5px;
+}
+
+.copy {
+    content: "copy";
+    padding: 2px 10px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-10px, -90%);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+    background: #272822;
+    cursor: pointer;
+    transition: all 200ms ease;
+    z-index: 100;
+}
+
+.copy:hover {
+    color: rgb(159, 224, 39);
 }
 
 
@@ -39,7 +65,6 @@ pre[class*="language-"] {
     margin: 0.5em 0;
     overflow: auto;
     border-radius: 0.3em;
-    padding: 0;
 }
 
 :not(pre)>code[class*="language-"],

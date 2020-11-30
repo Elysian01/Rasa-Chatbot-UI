@@ -7,25 +7,16 @@
       >
     </div>
 
-    <footer class="dark-bg">
-      <h2 class="text-white">Made By:</h2>
+    <!--<footer class="dark-bg">
+      <h2 class="text-white">Website was made by:</h2>
       <h2>
-        <a
-          class="primary-color"
-          target="_blank "
-          href="https://www.linkedin.com/in/abhishek-gupta-a745221a0/ "
-          >Abhishek Gupta</a
-        >
+        <a class="primary-color" target="_blank " href="https://www.linkedin.com/in/abhishek-gupta-a745221a0/ ">Abhishek Gupta</a>
       </h2>
       <h2>
-        <a
-          class="primary-color"
-          target="_blank "
-          href="https://www.linkedin.com/in/ansh-chhadva-ab3902183/ "
-          >Ansh Chhadva</a
-        >
+        <a class="primary-color" target="_blank " href="https://www.linkedin.com/in/ansh-chhadva-ab3902183/ ">Ansh Chhadva</a>
       </h2>
-    </footer>
+    </footer>-->
+    
   </div>
 </template>
 

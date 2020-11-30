@@ -1,5 +1,6 @@
 <template>
   <div class="hero" id="hero">
+
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
         <a class="navbar-brand" href="#hero"
@@ -58,28 +59,25 @@
         data-aos-duration="1000"
         class="hero-header"
       >
-        <h1>
-          Get Your Chatbot Frontend <br />
-          Ready With
-          <span class="primary-color"
-            >Customizable<br />
-            UI</span
-          >
-        </h1>
+        <h1>Get your hands on our<br><span class="primary-color"> Ready-to-use UI Designs</span><br> for your Chatbots!</h1>
+        
         <br />
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic velit
-          aspernatur nemo omnis laudantium cum soluta accusamus placeat illo
-          deleniti sit, natus necessitatibus quo ab. Exercitationem
-          necessitatibus quos consectetur fugit.
+          Looking for UI Designs for your ChatBot with alluring colours and responsive features? Look no further!
+          Explore our available designs in different colour schemes and ensure smooth traversal across all devices. 
+          Don't like the available designs? Don't you worry! Customize themes and colours according to your liking 
+          very quickly and easily. 
         </p>
+
+        <br> 
+        <h3><span class="primary-color" style='margin-left:15%;'>Embed. Customize. Repeat.</span></h3>
+        
         <div class="btns">
           <a href="#get-started"
             ><button class="btn-green">Get Started</button></a
           >
-          <a href="Chatbot-UI.zip" download
-            ><button class="btn-green">Download</button></a
-          >
+          <!--<a href="Chatbot-UI.zip" download><button class="btn-green">Download</button></a>-->
+          <button @click = "downloadFile" class="btn-green">Download</button>
         </div>
       </div>
 
@@ -91,14 +89,37 @@
         <img src="../assets/img/homepage-bot.png " alt="Bot Image " />
       </div>
     </div>
+    <br>
+
   </div>
 </template>
 
 <script>
 import "../assets/css/styles.css";
 
+import axios from "axios"
+
 export default {
   name: "Hero",
+
+  methods: {
+    downloadFile(){
+      axios({
+        url:"http://localhost:8081/Chatbot-UI.zip",
+        method:'GET',
+        responseType:'blob'
+      }).then((response)=> {
+        var fileUrl = window.URL.createObjectURL(new Blob([response.data]))
+        var fileLink = document.createElement('a')
+        fileLink.href = fileUrl
+
+        fileLink.setAttribute("download","Chatbot-UI.zip")
+        document.body.appendChild(fileLink)
+        fileLink.click()
+      })
+      
+    }
+  },
 };
 </script>
 

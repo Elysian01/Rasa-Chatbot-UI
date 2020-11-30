@@ -37,13 +37,11 @@
       <br />
 
       <div class="text-center">
-        <a href="Chatbot-UI.zip" download
-          ><button type="button" class="btn btn-dark btn-lg mx-auto btn-margin">
+      
+        <button @click = "downloadFile" type="button" class="btn btn-dark btn-lg mx-auto btn-margin">
             <i class="fas fa-download"> </i>
             Download Package
-          </button></a
-        >
-
+          </button>
         <a
           href="https://github.com/Elysian01/ChatBot-Web-Integration"
           target="_blank"
@@ -59,8 +57,28 @@
 
 <script>
 import "../assets/css/styles.css";
+import axios from "axios"
+
 export default {
   name: "Themes",
+   methods: {
+    downloadFile(){
+      axios({
+        url:"http://localhost:8081/Chatbot-UI.zip",
+        method:'GET',
+        responseType:'blob'
+      }).then((response)=> {
+        var fileUrl = window.URL.createObjectURL(new Blob([response.data]))
+        var fileLink = document.createElement('a')
+        fileLink.href = fileUrl
+
+        fileLink.setAttribute("download","Chatbot-UI.zip")
+        document.body.appendChild(fileLink)
+        fileLink.click()
+      })
+      
+    }
+  },
 };
 </script>
 
