@@ -37,6 +37,12 @@ pre[class*="language-"] {
     border-radius: 5px;
 }
 
+@media (max-width: 768px) {
+    pre[class*="language-"] {
+        overflow: scroll !important;
+    }
+}
+
 .copy {
     content: "copy";
     padding: 2px 10px 0;

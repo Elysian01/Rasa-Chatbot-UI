@@ -269,3 +269,11 @@ function createChatBot(hostURL, botLogo, title, welcomeMessage, inactiveMsg, the
 
     chatbotTheme(theme)
 }
+
+console.log("Working!")
+
+createChatBot(host = 'http://localhost:5005/webhooks/rest/webhook',
+    botLogo = "img/bot-logo.png",
+    title = "UI BOT", welcomeMessage = "Hey, i am UI Bot, I am here to give you an example UI",
+    inactiveMsg = "This is inactive message, show casing that the server is down"
+)

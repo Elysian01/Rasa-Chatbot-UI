@@ -11,7 +11,7 @@
     <br /><br />
 
     <Footer />
-    <Chatbot />
+
   </div>
 </template>
 
@@ -20,7 +20,6 @@ import Hero from "./components/Hero.vue";
 import Features from "./components/Features.vue";
 import Getting_Started from "./components/Getting_Started.vue";
 import Themes from "./components/Themes.vue";
-import Chatbot from "./components/Chatbot.vue";
 import Footer from "./components/Footer.vue";
 
 import "./assets/css/styles.css";
@@ -32,7 +31,6 @@ export default {
     Features,
     Getting_Started,
     Themes,
-    Chatbot,
     Footer,
   },
 };
