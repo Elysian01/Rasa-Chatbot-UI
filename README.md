@@ -1,4 +1,4 @@
-# :green_circle: Chatbot-UI
+# Chatbot-UI
 
 Looking for UI Designs for your ChatBot with alluring colours and responsive features? Look no further! Explore our available designs in different colour schemes and ensure smooth traversal across all devices. Don't like the available designs? Don't you worry! Customize themes and colours according to your liking very quickly and easily.
 
