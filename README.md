@@ -8,13 +8,13 @@ Looking for UI Designs for your ChatBot with alluring colours and responsive fea
 
 Copy-paste the stylesheet <link> into your <head> before all other stylesheets to load our CSS.
 
-```
+```html
 <link rel="stylesheet" href="https://drive.google.com/uc?id=1x2TCnJdXTQFErgZhxjMUWKIIfIfSbIy-">
 ```
 
 Copy-paste the folowing code into your <body>, and update the function parameters to your need.
 
-```
+```javascript
 <div id="chat-container"></div>
 
 <script src="https://drive.google.com/uc?id=1QslZLwqbJl471otp1Ph1y8MLHSzKqCPl"></script>
