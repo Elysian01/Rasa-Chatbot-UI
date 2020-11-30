@@ -1,0 +1,206 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css";
+:root {
+    --chat-window-total-width: 380px;
+    --chat-window-height: 500px;
+    --chat-window-color-theme: rgb(17, 65, 84);
+    --chat-window-bg-color: #fff;
+    --chat-send-button: rgb(17, 65, 84);
+    --chat-user-msg-bg: rgb(3, 3, 3);
+    --chat-header-bg: linear-gradient(160deg, dodgerblue 0%, #80D0C7 100%);
+}
+
+.chat-btn {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    border: none;
+    outline: none !important;
+    cursor: pointer;
+    background-color: rgb(15, 15, 15);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    box-shadow: 0 5px 5px rgba(37, 36, 36, 0.8);
+    box-sizing: border-box;
+}
+
+.material-icon {
+    transform: scale(1.2);
+}
+
+.chat-btn:hover,
+.chat-submit:hover {
+    opacity: 1;
+}
+
+.chat-popup {
+    font-family: Arial, Helvetica, sans-serif;
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 120px;
+    height: var(--chat-window-height);
+    width: var(--chat-window-total-width);
+    background-color: var(--chat-window-bg-color);
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: space-between;
+    /* padding: 0.75rem; */
+    /* border: 1px solid #ccc; */
+    box-shadow: 5 5px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    box-sizing: border-box;
+    transition: all 0.5s ease-out;
+}
+
+.chat-header {
+    background-color: #36096d;
+    background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 0;
+    width: var(--chat-window-total-width);
+    align-items: center;
+    max-height: 50px;
+    box-sizing: border-box;
+}
+
+.chat-header .bot-title {
+    display: flex;
+    justify-content: flex-start;
+    float: left;
+    box-sizing: border-box;
+}
+
+.bot-title {
+    font-size: 18px;
+    font-weight: bold;
+    align-items: center;
+    margin-top: 7px;
+    color: rgb(255, 255, 255);
+}
+
+.expand-chat-window {
+    width: 50px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.expand-chat-window:hover {
+    transform: scale(1.5);
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+}
+
+.chat-area {
+    height: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    background-color: var(--chat-window-bg-color);
+}
+
+.bot-msg {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    box-sizing: border-box;
+}
+
+.bot-img {
+    width: 30px;
+    margin-right: 15px;
+    box-sizing: border-box;
+}
+
+.bot-msg .msg {
+    background-color: var(--chat-window-color-theme);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+.user-msg {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.user-msg .msg {
+    background-color: var(--chat-user-msg-bg);
+    color: black;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    word-break: break-all;
+    box-sizing: border-box;
+}
+
+.msg-image {
+    max-width: 90%;
+    max-height: 400px;
+    box-sizing: border-box;
+}
+
+.chat-input-area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.chat-input {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    height: 2.2rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    outline-color: var(--chat-window-color-theme);
+    box-sizing: border-box;
+}
+
+.chat-submit {
+    padding: 0.25rem 0.5rem;
+    margin-left: 0.5rem;
+    background-color: var(--chat-send-button);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+    box-sizing: border-box;
+    /* opacity: 0.8;
+    transition: opacity 0.3s; */
+}
+
+@media (max-width:500px) {
+    .chat-popup {
+        bottom: 120px;
+        right: 10%;
+        width: 80vw;
+        height: 100%;
+    }
+}
