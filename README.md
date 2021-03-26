@@ -26,8 +26,11 @@ title = "Covid BOT ", welcomeMessage = "Hey, i am Covid Bot ",
 inactiveMsg = "Server is down, Please contact the developer to activate it ",
 theme="blue ")
 </script>
-
 ```
+
+### Security
+
+If the bot response contains the word "password", then the user input box type will change from text to password (html) for password protection.
 
 ## For Rasa
 
@@ -40,9 +43,6 @@ rasa run -m models --enable-api --cors "*" --debug
 ```
 rasa run actions
 ```
-
-
-
 
 
 ### The frontend webiste for documentation is also built using Vuejs, the files for it are [here](./chatbot-ui-vuejs-app) and deployed version of site is [here](https://chatbot-web-ui.netlify.app/) 

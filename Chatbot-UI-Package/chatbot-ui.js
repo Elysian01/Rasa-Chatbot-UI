@@ -121,10 +121,13 @@ function init() {
         }
 
     })
-
-
 }
 
+// end of init function
+
+
+
+var passwordInput = false;
 
 function userResponseBtn(e) {
     send(e.value);
@@ -144,6 +147,9 @@ function givenUserInput(e) {
 // to display user message on UI
 function setUserResponse() {
     let userInput = chatInput.value;
+    if (passwordInput) {
+        userInput = "******"
+    }
     if (userInput) {
         let temp = `<div class="user-msg"><span class = "msg">${userInput}</span></div>`
         chatArea.innerHTML += temp;
@@ -166,6 +172,8 @@ Frontend Part Completed
 
 // host = 'http://localhost:5005/webhooks/rest/webhook'
 function send(message) {
+    chatInput.type = "text"
+    passwordInput = false;
     chatInput.focus();
     console.log("User Message:", message)
     $.ajax({
@@ -210,6 +218,11 @@ function setBotResponse(val) {
             for (i = 0; i < val.length; i++) {
                 //check if there is text message
                 if (val[i].hasOwnProperty("text")) {
+                    const botMsg = val[i].text;
+                    if (botMsg.includes("password")) {
+                        chatInput.type = "password";
+                        passwordInput = true;
+                    }
                     var BotResponse = `<div class='bot-msg'><img class='bot-img' src ='${botLogoPath}' /><span class='msg'>${val[i].text}</span></div>`;
                     $(BotResponse).appendTo('.chat-area').hide().fadeIn(1000);
                 }
