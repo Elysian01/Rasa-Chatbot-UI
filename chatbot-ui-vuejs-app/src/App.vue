@@ -2,7 +2,7 @@
   <div>
     <Hero />
     <Features />
-
+    <ChatPlugin/>
     <br /><br />
     <Getting_Started />
     <br />
@@ -23,6 +23,7 @@ import Themes from "./components/Themes.vue";
 import Footer from "./components/Footer.vue";
 
 import "./assets/css/styles.css";
+import ChatPlugin from "./components/ChatPlugin.vue";
 
 export default {
   name: "App",
@@ -32,7 +33,8 @@ export default {
     Getting_Started,
     Themes,
     Footer,
-  },
+    ChatPlugin,
+},
 };
 </script>
 
